@@ -1,12 +1,21 @@
 require "calc"
 
+RSpec.shared_examples "basic functions" do
+  it "can add"
+  it "can subtrace"
+  it "can multiply"
+  it "can divide"
+end
+
 RSpec.describe Calc do
 
-  it {
-    logger = double('logger')
-    expect(logger).to receive(:log)
-    calc = Calc.new(logger)
-    expect(calc.add(5,2)).to eq(7)
-  }
+  context "normal mode" do
+    include_examples "basic functions"
+  end
+
+  context "expert mode" do
+    include_examples "basic functions"
+    it "can draw graph"
+  end
 
 end
